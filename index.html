@@ -9,6 +9,7 @@
   <style>
 
     body {
+
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #87CEFA, #FFB6C1);
       margin: 0;
@@ -18,9 +19,11 @@
       justify-content: center;
       height: 100vh;
       color: #333;
+
     }
 
     .container {
+
       background: white;
       border-radius: 15px;
       padding: 20px;
@@ -31,27 +34,35 @@
       width: 90%;
       max-height: 500px;
       max-width: 500px;
+
     }
 
     h1 {
+
       font-weight: 700;
       font-size: 2.5em;
       color: orange;
       margin-bottom: 20px;
+
     }
 
     h2, h3 {
+
       font-weight: 700;
       margin-top: 15px;
+
     }
 
     label {
+
       display: block;
       margin: 8px 0;
       font-size: 1.2em;
+
     }
 
     input[type="number"] {
+
       width: 90%;
       height: 35px;
       font-size: 1em;
@@ -59,9 +70,11 @@
       border: 2px solid #4CAF50;
       border-radius: 8px;
       margin: 10px 0;
+
     }
 
     button {
+
       width: 90%;
       height: 40px;
       font-size: 1em;
@@ -71,64 +84,93 @@
       border-radius: 10px;
       cursor: pointer;
       margin: 10px 0;
+
     }
 
     button:hover {
+
       background-color: #45a049;
+
     }
 
     #result, #total-send {
+
       font-size: 1.2em;
       font-weight: bold;
       margin-top: 20px;
+
     }
 
     /* Media Queries */
 
     /* Laptop */
     @media (min-width: 1024px) {
+
       .container {
+
         max-width: 600px;
+
       }
 
       h1 {
+
         font-size: 3em;
+
       }
 
       button {
+
         height: 50px;
+
       }
+
     }
 
     /* Tablet */
     @media (max-width: 1023px) and (min-width: 768px) {
+
       .container {
+
         max-width: 500px;
+
       }
 
       h1 {
+
         font-size: 2.5em;
+
       }
 
       button {
+
         height: 45px;
+
       }
+
     }
 
     /* Phone */
     @media (max-width: 767px) {
+
       .container {
+
         max-width: 90%;
         padding: 15px;
+
       }
 
       h1 {
+
         font-size: 2em;
+
       }
 
       button {
+
         height: 40px;
+
       }
+
     }
 
   </style>
@@ -170,13 +212,16 @@
   <script>
 
     function calculateChange() {
+
       const taxiAmount = parseFloat(document.getElementById('taxi-amount').value);
       const moneyReceived = parseFloat(document.getElementById('money-received').value);
       const passengers = parseInt(document.getElementById('passengers').value);
 
       if (isNaN(taxiAmount) || isNaN(moneyReceived) || isNaN(passengers)) {
+
         document.getElementById('result').innerHTML = 'Invalid input!';
         return;
+
       }
 
       const totalFare = taxiAmount * passengers;
@@ -188,16 +233,20 @@
     }
 
     function calculateTotal() {
+
       const taxiAmount = parseFloat(document.getElementById('sum-taxi-amount').value);
       const passengers = parseInt(document.getElementById('sum-passengers').value);
 
       if (isNaN(taxiAmount) || isNaN(passengers)) {
+
         document.getElementById('total-send').innerHTML = 'Invalid input!';
         return;
+
       }
 
       const totalFare = taxiAmount * passengers;
       document.getElementById('total-send').innerHTML = `R${totalFare.toFixed(2)}`;
+      
     }
 
   </script>
