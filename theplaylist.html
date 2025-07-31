@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Playlist</title>
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f8bbd0, #c8e6c9);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+
+    header {
+      background-color: #512DA8;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .player-container {
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #388E3C;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #eee;
+      padding: 10px;
+      margin-top: 40px;
+    }
+
+    .song-title {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎶 Taxi Jams</h1>
+    <p>Vibes for the road</p>
+  </header>
+
+  <div class="player-container">
+    <div class="song-title" id="songTitle">Now Playing: The Way</div>
+    <audio id="audioPlayer" controls autoplay></audio>
+
+    <div class="controls">
+      <button onclick="prevSong()">⏮ Prev</button>
+      <button onclick="togglePlayPause()" id="playPauseBtn">⏸ Pause</button>
+      <button onclick="nextSong()">Next ⏭</button>
+    </div>
+
+    <label for="volumeControl">Volume</label>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" />
+  </div>
+
+  <footer>
+    &copy; 2024 Kasi Vibes – Taxi Tunes Edition
+  </footer>
+
+  <script>
+    const songs = [
+      { title: "The Way", file: "theway.m4a" },
+      { title: "All I Do", file: "allido.m4a" }
+    ];
+
+    let currentSong = 0;
+    const audio = document.getElementById('audioPlayer');
+    const title = document.getElementById('songTitle');
+    const volumeControl = document.getElementById('volumeControl');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    function loadSong(index) {
+      audio.src = songs[index].file;
+      title.textContent = "Now Playing: " + songs[index].title;
+      audio.play();
+      playPauseBtn.textContent = "⏸ Pause";
+    }
+
+    function nextSong() {
+      currentSong = (currentSong + 1) % songs.length;
+      loadSong(currentSong);
+    }
+
+    function prevSong() {
+      currentSong = (currentSong - 1 + songs.length) % songs.length;
+      loadSong(currentSong);
+    }
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = "⏸ Pause";
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = "▶ Play";
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      nextSong(); // auto-next on end
+    });
+
+    volumeControl.addEventListener('input', () => {
+      audio.volume = volumeControl.value;
+    });
+
+    // Initial load
+    window.onload = () => {
+      loadSong(currentSong);
+    };
+  </script>
+
+</body>
+</html>
