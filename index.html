@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Maths - Kasi Rides</title>
+    <title>Taxi Maths</title>
     <link rel="icon" href="icon.png" type="image/x-icon">
+    
     <style>
+        
         body {
+            
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #F0F4C3; /* Soft pastel green for a fresh look */
             margin: 0;
@@ -18,23 +23,29 @@
             justify-content: flex-start;
             color: #333;
             text-align: center;
+            
         }
 
         header {
+            
             background-color: #FFC107; /* Bright yellow for energy */
             padding: 20px 0;
             width: 100%;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            
         }
 
         h1 {
+            
             font-weight: 700;
             font-size: 2.8em;
             color: #D32F2F; /* Rich red for visibility */
             margin: 0;
+            
         }
 
         .kasi-flavor {
+            
             font-style: italic;
             font-size: 1.2em;
             color: #fff;
@@ -63,6 +74,7 @@
         }
 
         button {
+
             width: 90%;
             height: 45px;
             font-size: 1em;
@@ -73,41 +85,53 @@
             cursor: pointer;
             margin: 10px 0;
             transition: background-color 0.3s;
+            
         }
 
         button:hover {
+            
             background-color: #388E3C;
+            
         }
 
         #result, #total-send {
+            
             font-size: 1.5em;
             font-weight: bold;
             margin-top: 20px;
             color: #C2185B; /* Strong pink for emphasis */
+            
         }
 
         .ad {
+            
             width: 90%;
             max-width: 370px;
             margin: 10px 0;
+            
         }
 
         footer {
+            
             position: sticky;
             bottom: 0;
             width: 100%;
             background-color: #FFC107; /* Keeping the bright yellow for consistency */
             padding: 15px 0;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            
         }
 
         .footer-content {
+            
             font-size: 1em;
             color: #3E2723;
+            
         }
 
         /* Media Queries */
         @media (max-width: 767px) {
+            
             h1 {
                 font-size: 2.5em;
             }
@@ -115,41 +139,44 @@
             button {
                 height: 40px;
             }
+            
         }
+        
     </style>
+    
 </head>
 
 <body>
 
     <header>
-        <h1>TAXI MATHS</h1>
-        <p class="kasi-flavor">Your ride, your rules!</p>
+        <h1>taxi maths</h1>
+        <p class="kasi-flavor">your ride, your rules!</p>
     </header>
 
     <a href="http://bns.co.za">
         <img src="bns.png" class="ad" alt="Ad Space 1">
     </a>
 
-    <h2>Calculate Your Change</h2>
-    <label>Taxi Amount (Rands):</label>
+    <h2>calculate your change</h2>
+    <label>taxi amount (rands):</label>
     <input type="number" id="taxi-amount" />
-    <label>Money Received (Rands):</label>
+    <label>money received (rands):</label>
     <input type="number" id="money-received" />
-    <label>Number of Passengers:</label>
+    <label>number of passengers:</label>
     <input type="number" id="passengers" />
-    <button onclick="calculateChange()">Calculate Change</button>
+    <button onclick="calculateChange()">calculate change</button>
 
-    <h3>Total Change to Give Back (Rands):</h3>
+    <h3>total change to give back (rands):</h3>
     <div id="result"></div>
 
-    <h2>Sum Up Your Fare</h2>
-    <label>Taxi Fare Amount (Rands):</label>
+    <h2>sum up your fare</h2>
+    <label>taxi fare amount (rands):</label>
     <input type="number" id="sum-taxi-amount" />
-    <label>Number of Passengers:</label>
+    <label>number of passengers:</label>
     <input type="number" id="sum-passengers" />
-    <button onclick="calculateTotal()">Calculate Total</button>
+    <button onclick="calculateTotal()">calculate total</button>
 
-    <h3>Total Amount to Send to the Front (Rands):</h3>
+    <h3>total amount to send to the front (rands):</h3>
     <div id="total-send"></div>
 
     <a href="http://madalazkitchen.co.za">
@@ -158,18 +185,20 @@
 
     <section style="margin: 30px 0;">
     <h2>tp</h2>
-    <button onclick="window.location.href='theplaylist.html'">🎧 Go to Music Playlist</button>
+    <button onclick="window.location.href='theplaylist.html'">tp</button>
 </section>
 
 
     <footer>
         <div class="footer-content">
-            &copy; 2024 Taxi Maths - Bringing Kasi Together!
+            &copy; 2024 taxi Maths
         </div>
     </footer>
 
     <script>
+        
         function calculateChange() {
+            
             const taxiAmount = parseFloat(document.getElementById('taxi-amount').value);
             const moneyReceived = parseFloat(document.getElementById('money-received').value);
             const passengers = parseInt(document.getElementById('passengers').value);
@@ -177,6 +206,7 @@
             if (isNaN(taxiAmount) || isNaN(moneyReceived) || isNaN(passengers)) {
                 document.getElementById('result').innerHTML = 'Invalid input!';
                 return;
+                
             }
 
             const totalFare = taxiAmount * passengers;
@@ -185,22 +215,33 @@
             document.getElementById('result').innerHTML = change < 0 
                 ? `Shortage: R${Math.abs(change).toFixed(2)}` 
                 : `Change: R${change.toFixed(2)}`;
+            
         }
 
         function calculateTotal() {
+            
             const taxiAmount = parseFloat(document.getElementById('sum-taxi-amount').value);
             const passengers = parseInt(document.getElementById('sum-passengers').value);
 
             if (isNaN(taxiAmount) || isNaN(passengers)) {
                 document.getElementById('total-send').innerHTML = 'Invalid input!';
                 return;
+                
             }
 
             const totalFare = taxiAmount * passengers;
             document.getElementById('total-send').innerHTML = `R${totalFare.toFixed(2)}`;
+            
         }
+        
     </script>
 
 </body>
-
+    
 </html>
+
+
+
+
+
+
