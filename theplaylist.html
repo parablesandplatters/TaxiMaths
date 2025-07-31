@@ -1,50 +1,71 @@
 <!DOCTYPE html>
+
 <html lang="en">
+  
 <head>
+  
   <meta charset="UTF-8" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
   <title>The Playlist</title>
+  
   <link rel="icon" href="icon.png" type="image/x-icon">
+  
   <style>
+    
     body {
+      
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #f8bbd0, #c8e6c9);
       margin: 0;
       padding: 0;
       text-align: center;
       color: #333;
+      
     }
 
     header {
+      
       background-color: #512DA8;
       color: white;
       padding: 20px;
+      
     }
 
     h1 {
+      
       margin: 0;
       font-size: 2.5em;
+      
     }
 
     .player-container {
+      
       margin: 40px auto;
       padding: 20px;
       max-width: 500px;
       background: white;
       border-radius: 20px;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      
     }
 
     audio {
+      
       width: 100%;
       margin-top: 15px;
+      
     }
 
     .controls {
+      
       margin-top: 20px;
+      
     }
 
     button {
+      
       margin: 0 10px;
       padding: 10px 20px;
       font-size: 1em;
@@ -53,39 +74,50 @@
       cursor: pointer;
       background-color: #4CAF50;
       color: white;
+      
     }
 
     button:hover {
+      
       background-color: #388E3C;
+      
     }
 
     input[type="range"] {
+      
       width: 100%;
       margin-top: 15px;
+      
     }
 
     footer {
+      
       background-color: #eee;
       padding: 10px;
       margin-top: 40px;
+      
     }
 
     .song-title {
+      
       font-weight: bold;
       margin-top: 20px;
       font-size: 1.2em;
+      
     }
+    
   </style>
+  
 </head>
+  
 <body>
 
   <header>
-    <h1>🎶 Taxi Jams</h1>
-    <p>Vibes for the road</p>
+    <h1>theplaylist</h1>
   </header>
 
   <div class="player-container">
-    <div class="song-title" id="songTitle">Now Playing: The Way</div>
+    <div class="song-title" id="songTitle">now playing: The Way</div>
     <audio id="audioPlayer" controls autoplay></audio>
 
     <div class="controls">
@@ -99,10 +131,11 @@
   </div>
 
   <footer>
-    &copy; 2024 Kasi Vibes – Taxi Tunes Edition
+    &copy; 2024 theplaylist
   </footer>
 
   <script>
+    
     const songs = [
       { title: "All I do", file: "Jeanette Harris - All I Do.mp3" },
       { title: "The Way it feels", file: "The Way it feels.m4a" }
@@ -153,7 +186,12 @@
     window.onload = () => {
       loadSong(currentSong);
     };
+    
   </script>
 
 </body>
 </html>
+
+
+
+
